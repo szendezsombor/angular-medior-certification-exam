@@ -1,8 +1,8 @@
 <div class="card w-75 m-auto mt-5 p-3">
   <p>Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)</p>
   <form (ngSubmit)="onStockFormSubmit(form)" #form="ngForm">
-    <div class="row g-5">
-      <div class="col-6">
+    <div class="row g-2 g-sm-5">
+      <div class="col-12 col-sm-6">
         <input
           class="form-control"
           [class.is-invalid]="form.dirty && stockSymbol.invalid"
@@ -15,13 +15,19 @@
           required
           ngModel
           #stockSymbol="ngModel">
-          <div class="invalid-feedback" *ngIf="form.dirty && stockSymbol.invalid">
-            Minimum 1 character maximum 5 caracter long.
-          </div>
+        <div class="invalid-feedback" *ngIf="form.dirty && stockSymbol.invalid">
+          Minimum 1 character maximum 5 caracter long.
+        </div>
       </div>
-      <div class="col-6">
-        <button type="submit" class="btn btn-primary">Track Stock</button>
+      <div class="col-12 col-sm-6">
+        <button type="submit" class="btn btn-primary d-block m-auto">Track Stock</button>
       </div>
     </div>
   </form>
+</div>
+
+<div class="stock-data">
+  <div *ngFor="let stock of stocks$ | async">
+    <app-stock-detail [stock]="stock" (cardCloseEvent)="removeStock($event)"></app-stock-detail>
+  </div>
 </div>

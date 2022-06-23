@@ -1,0 +1,9 @@
+.card-close-button {
+  color: rgb(194, 194, 194);
+  transition: color .2s ease;
+
+  &:hover {
+    color: rgb(131, 131, 131);
+    cursor: pointer;
+  }
+}
