@@ -17,14 +17,11 @@
         </div>
       </div>
       <div class="col-12 col-sm-3 text-center">
-        <i class="bi fs-1"
-           [class.bi-arrow-up]="stock.percentChange > 0"
-           [class.bi-arrow-down]="stock.percentChange < 0"
-           [style.color]="stock.percentChange > 0 ? 'green' : 'red'"></i>
+        <app-stock-status-indicator [status]="stock.percentChange > 0 ? 'increase' : 'decrease'"></app-stock-status-indicator>
       </div>
     </div>
     <div class="mt-3">
-      <button class="btn btn-secondary">Go to social sentiment details ></button>
+      <button class="btn btn-secondary" [routerLink]="['sentiment', stock.symbol]">Go to social sentiment details ></button>
     </div>
   </div>
 </div>

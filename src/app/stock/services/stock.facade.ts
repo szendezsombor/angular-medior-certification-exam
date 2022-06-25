@@ -3,7 +3,6 @@ import {StockModel} from "../models/stock.model";
 import {StockApi} from "./stock.api";
 import {Injectable} from "@angular/core";
 
-
 @Injectable()
 export class StockFacade {
 

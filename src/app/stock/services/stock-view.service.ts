@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
-import {StockFacade} from "../domain/stock.facade";
 import {BehaviorSubject, Observable, tap} from "rxjs";
 import {StockModel} from "../models/stock.model";
+import {StockFacade} from "./stock.facade";
 
 @Injectable()
 export class StockViewService {
@@ -16,7 +16,7 @@ export class StockViewService {
   }
 
   addStock$ = (stock: StockModel) => {
-    const stocks = [...this._stocks$.getValue(), stock];
+    const stocks = [stock, ...this._stocks$.getValue()];
     this._stocks$.next(stocks);
     this.storeStocksInLocalStorage(stocks);
   }
