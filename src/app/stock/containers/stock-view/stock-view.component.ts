@@ -1,26 +1,26 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {Observable} from "rxjs";
-import {StockModel} from "../../models/stock.model";
-import {StockViewService} from "../../services/stock-view.service";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { StockModel } from '../../models/stock.model';
+import { StockViewService } from '../../services/stock-view.service';
 
 @Component({
-  selector: 'app-stock-view',
-  templateUrl: './stock-view.component.html',
-  styleUrls: ['./stock-view.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-stock-view',
+    templateUrl: './stock-view.component.html',
+    styleUrls: ['./stock-view.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StockViewComponent {
-  stocks$: Observable<StockModel[]>;
+    stocks$: Observable<StockModel[]>;
 
-  constructor(private stockViewService: StockViewService) {
-    this.stocks$ = this.stockViewService.getStocks$();
-  }
+    constructor(private stockViewService: StockViewService) {
+        this.stocks$ = this.stockViewService.getStocks$();
+    }
 
-  onStockSymbolTracked(stockSymbol: string) {
-    this.stockViewService.getStock(stockSymbol).subscribe();
-  }
+    onStockSymbolTracked(stockSymbol: string): void {
+        this.stockViewService.getStock(stockSymbol).subscribe();
+    }
 
-  removeStock(stockSymbol: string) {
-    this.stockViewService.removeStock$(stockSymbol);
-  }
+    removeStock(stockSymbol: string): void {
+        this.stockViewService.removeStock$(stockSymbol);
+    }
 }

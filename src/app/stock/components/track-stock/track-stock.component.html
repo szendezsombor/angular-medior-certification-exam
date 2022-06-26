@@ -1,28 +1,29 @@
 <div class="card w-75 m-auto mt-5 p-3">
-  <p>Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)</p>
-  <form (ngSubmit)="onStockFormSubmit(form)" #form="ngForm">
-    <div class="row g-2 g-sm-5">
-      <div class="col-12 col-sm-6">
-        <input
-          class="form-control text-uppercase"
-          [class.is-invalid]="form.dirty && stockSymbol.invalid"
-          [class.is-valid]="form.dirty && stockSymbol.valid"
-          name="stockSymbol"
-          type="text"
-          placeholder="EXAMPLE STOCK"
-          minlength="1"
-          maxlength="5"
-          required
-          appOnlyLetterValidator
-          ngModel
-          #stockSymbol="ngModel">
-        <div class="invalid-feedback" *ngIf="form.dirty && stockSymbol.invalid">
-          Minimum 1 character maximum 5 caracter long, also it could be only letters no numbers.
+    <p>Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)</p>
+    <form (ngSubmit)="onStockFormSubmit(form)" #form="ngForm">
+        <div class="row g-2 g-sm-5">
+            <div class="col-12 col-sm-6">
+                <input
+                    class="form-control text-uppercase"
+                    [class.is-invalid]="form.dirty && stockSymbol.invalid"
+                    [class.is-valid]="form.dirty && stockSymbol.valid"
+                    name="stockSymbol"
+                    type="text"
+                    placeholder="EXAMPLE STOCK"
+                    minlength="1"
+                    maxlength="5"
+                    required
+                    appOnlyLetterValidator
+                    ngModel
+                    #stockSymbol="ngModel"
+                />
+                <div class="invalid-feedback" *ngIf="form.dirty && stockSymbol.invalid">
+                    Minimum 1 character maximum 5 caracter long, also it could be only letters no numbers.
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <button type="submit" class="btn btn-primary d-block m-auto">Track Stock</button>
+            </div>
         </div>
-      </div>
-      <div class="col-12 col-sm-6">
-        <button type="submit" class="btn btn-primary d-block m-auto">Track Stock</button>
-      </div>
-    </div>
-  </form>
+    </form>
 </div>

@@ -1,6 +1,6 @@
-import {StockSentimentModel} from "./stock-sentiment.model";
+import { StockSentimentModel } from './stock-sentiment.model';
 
 export interface StockSentimentResponseModel {
-  data: StockSentimentModel[];
-  symbol: string;
+    data: StockSentimentModel[];
+    symbol: string;
 }

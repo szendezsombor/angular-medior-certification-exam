@@ -3,21 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StockViewComponent } from './stock-view.component';
 
 describe('StockViewComponent', () => {
-  let component: StockViewComponent;
-  let fixture: ComponentFixture<StockViewComponent>;
+    let component: StockViewComponent;
+    let fixture: ComponentFixture<StockViewComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ StockViewComponent ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [StockViewComponent],
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(StockViewComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(StockViewComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

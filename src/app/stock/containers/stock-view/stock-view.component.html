@@ -1,9 +1,9 @@
 <div class="track-stock-container">
-  <app-track-stock (stockSymbolTrack)="onStockSymbolTracked($event)"></app-track-stock>
+    <app-track-stock (stockSymbolTrack)="onStockSymbolTracked($event)"></app-track-stock>
 </div>
 
 <div class="view-stocks-container">
-  <div *ngFor="let stock of stocks$ | async">
-    <app-stock-detail [stock]="stock" (cardCloseEvent)="removeStock($event)"></app-stock-detail>
-  </div>
+    <div *ngFor="let stock of stocks$ | async">
+        <app-stock-detail [stock]="stock" (cardCloseEvent)="removeStock($event)"></app-stock-detail>
+    </div>
 </div>

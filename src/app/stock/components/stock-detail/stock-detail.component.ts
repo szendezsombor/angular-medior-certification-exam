@@ -1,19 +1,17 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {StockModel} from "../../models/stock.model";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { StockModel } from '../../models/stock.model';
 
 @Component({
-  selector: 'app-stock-detail',
-  templateUrl: './stock-detail.component.html',
-  styleUrls: ['./stock-detail.component.scss']
+    selector: 'app-stock-detail',
+    templateUrl: './stock-detail.component.html',
+    styleUrls: ['./stock-detail.component.scss'],
 })
 export class StockDetailComponent {
+    @Input() stock!: StockModel;
 
-  @Input() stock!: StockModel;
+    @Output() cardCloseEvent: EventEmitter<string> = new EventEmitter<string>();
 
-  @Output() cardCloseEvent: EventEmitter<string> = new EventEmitter<string>();
-
-
-  closeCard(stockSymbol: string) {
-    this.cardCloseEvent.emit(stockSymbol);
-  }
+    closeCard(stockSymbol: string): void {
+        this.cardCloseEvent.emit(stockSymbol);
+    }
 }

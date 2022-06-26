@@ -1,41 +1,41 @@
 <div class="mt-5">
-  <div class="card w-75 m-auto">
-    <div *ngIf="stock; else spinner">
-      <div class="card-header m-0">
-        {{ stock.name }} ({{ stock.symbol }})
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div *ngFor="let stockSentiment of stockSentiments" class="col-12 col-sm-4">
-            <div class="row">
-              <div class="col-9">
-                <div>{{ stockSentiment.date | date:'MMMM' | uppercase }}</div>
-                <div>Change: {{ stockSentiment.change > 0 ? '+' : '' }}{{ stockSentiment.change }}</div>
-                <div>MSPR: {{ stockSentiment.mspr > 0 ? '+' : '' }}{{ stockSentiment.mspr | number:'1.0-2' }}</div>
-              </div>
-              <div class="col-3">
-                <app-stock-status-indicator
-                  [status]="stockSentiment.change > 0 ? 'increase' : 'decrease'"></app-stock-status-indicator>
-              </div>
+    <div class="card w-75 m-auto">
+        <div *ngIf="stock; else spinner">
+            <div class="card-header m-0">{{ stock.name }} ({{ stock.symbol }})</div>
+            <div class="card-body">
+                <div class="row">
+                    <div *ngFor="let stockSentiment of stockSentiments" class="col-12 col-sm-4">
+                        <div class="row">
+                            <div class="col-9">
+                                <div>{{ stockSentiment.date | date: 'MMMM' | uppercase }}</div>
+                                <div>Change: {{ stockSentiment.change > 0 ? '+' : '' }}{{ stockSentiment.change }}</div>
+                                <div>
+                                    MSPR: {{ stockSentiment.mspr > 0 ? '+' : ''
+                                    }}{{ stockSentiment.mspr | number: '1.0-2' }}
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <app-stock-status-indicator
+                                    [status]="stockSentiment.change > 0 ? 'increase' : 'decrease'"
+                                ></app-stock-status-indicator>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="stockSentiments.length === 0">
+                        <div class="alert alert-info" role="alert">No data found from the last 3 month</div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div *ngIf="stockSentiments.length === 0">
-            <div class="alert alert-info" role="alert">
-              No data found from the last 3 month
-            </div>
-          </div>
         </div>
-      </div>
+        <ng-template #spinner>
+            <div class="m-auto p-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </ng-template>
     </div>
-    <ng-template #spinner>
-      <div class="m-auto p-5">
-        <div class="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    </ng-template>
-  </div>
-  <div class="w-75 m-auto mt-4">
-    <button class="btn btn-secondary" [routerLink]="['/']"> < Back to list of stocks</button>
-  </div>
+    <div class="w-75 m-auto mt-4">
+        <button class="btn btn-secondary" [routerLink]="['/']">< Back to list of stocks</button>
+    </div>
 </div>
